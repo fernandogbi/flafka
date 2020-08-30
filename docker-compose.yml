@@ -1,0 +1,29 @@
+version: "3.4"
+
+services:
+  flume:
+    build:
+      context: ./build/flume
+    image: apache-flume:1.9.0
+    volumes:
+      - ./conf/flume/config_files:/conf
+      - ./conf/flume/spool_to_logger:/spool_to_logger
+      - ./conf/flume/spool_to_kafka:/spool_to_kafka
+    env_file:
+      - credentials.env
+    command: flume-ng agent --conf /usr/local/apache-flume/conf --conf-file /conf/${CONFIG_FILE} --name agent -Dflume.root.logger=DEBUG,console -DpropertiesImplementation=org.apache.flume.node.EnvVarResolverProperties
+    depends_on:
+      - kafka
+
+  kafka:
+    build:
+      context: ./build/kafka
+      target: kafka
+    image: apache-kafka:2.5.0
+    volumes:
+      - ./conf/kafka/server.properties:/kafka/config/server.properties
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: zookeeper:3.6

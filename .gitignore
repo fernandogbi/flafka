@@ -1,0 +1,5 @@
+build/flume/apache-flume-bin.tar.gz
+build/kafka/kafka-src
+conf/flume/spool_to_logger
+conf/flume/spool_to_kafka
+credentials.env
