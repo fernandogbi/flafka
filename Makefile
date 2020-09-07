@@ -9,19 +9,19 @@ start:
 	@echo "==========================================================="
 
 get_flume:
-	echo "downloading flume files"
+	@echo "downloading flume files"
 	@. ./scripts/download-flume.sh ${FLUME_VERSION}
 
 get_kafka:
-	echo "downloading kafka files"
+	@echo "downloading kafka files"
 	@. ./scripts/download-kafka.sh ${KAFKA_VERSION}
 
 build_flume_image:
-	echo "building flume image"
+	@echo "building flume image"
 	@. ./scripts/build-flume-image.sh ${FLUME_VERSION}
 
 build_kafka_image:
-	echo "building kafka image"
+	@echo "building kafka image"
 	@. ./scripts/build-kafka-image.sh ${KAFKA_VERSION}
 
 install: start get_flume get_kafka build_flume_image build_kafka_image
