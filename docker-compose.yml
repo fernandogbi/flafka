@@ -7,7 +7,6 @@ services:
     image: apache-flume:1.9.0
     volumes:
       - ./conf/flume/config_files:/conf
-      - ./conf/flume/spool_to_logger:/spool_to_logger
       - ./conf/flume/spool_to_kafka:/spool_to_kafka
     env_file:
       - credentials.env
