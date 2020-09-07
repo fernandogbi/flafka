@@ -38,3 +38,22 @@ $ sh scripts/topics-consumer.sh spool_to_kafka
 Seu terminal irá consumir todas as mensagens que o Flume irá enviar com o conteúdo dos arquivos de texto na pasta conf/flume/spool_to_kafka. Você pode criar um arquivo de texto próprio e salva-lo no diretório, mas para facilitar o teste do ambiente exitem 4 arquivos de texto na pasta documents. Voce pode copiar um desses arquivos para a pasta do Flume.
 
 Assim que o arquivo for copiado para a pasta você conseguirá ver a saída do tópico no terminal, e também verá que o arquivo foi renomeado com o ".COMPLETED".
+
+#### Exemplo 2 (Twitter to Kafka)
+
+Neste exemplo o Flume irá coletar tweets e realizar o envio ao tópico twitter_to_kafka. Neste exemplo é necessário que você tenha preenchido o arquivo credentials.env com as informações referentes as suas credenciais da API do Twitter.
+
+Com as credencias devidamente configuradas no arquivo credentials.env, execute o seguinte comando:
+```sh
+$ sh sh scripts/start.sh twitter-to-kafka.properties
+```
+Use o mesmo script do exemplo anterior para consumir os tweets que o Flume enviará ao tópico do Kafka, apenas altere o nome do tópico que será consumido, como no exemplo abaixo:
+```sh
+$ sh scripts/topics-consumer.sh twitter_to_kafka
+```
+Com a execução do comand acima deverá aparecer no terminal vários tweets coletados em streamming pelo Flume e enviados para o Kafka.
+
+Ao finalizar os testes você pode excluir todo o ambiente com o comando abaixo:
+```sh
+$ sh scripts/destroy.sh
+```
