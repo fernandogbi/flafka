@@ -45,7 +45,7 @@ Neste exemplo o Flume irá coletar tweets e realizar o envio ao tópico twitter_
 
 Com as credencias devidamente configuradas no arquivo credentials.env, execute o seguinte comando:
 ```sh
-$ sh sh scripts/start.sh twitter-to-kafka.properties
+$ sh scripts/start.sh twitter-to-kafka.properties
 ```
 Use o mesmo script do exemplo anterior para consumir os tweets que o Flume enviará ao tópico do Kafka, apenas altere o nome do tópico que será consumido, como no exemplo abaixo:
 ```sh
