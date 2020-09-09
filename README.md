@@ -27,7 +27,7 @@ Para iniciar o ambiente execute o comando abaixo na raiz do repositório:
 ```sh
 $ sh ./scripts/start.sh spool-to-kafka.properties
 ```
-O arquivo start.sh recebe como parãmetro o nome do arquivo de configuração que o Flume deve utilizar. Neste caso o arquivo utilizado será o spool-to-kafka.properties. Este arquivo está na pasta conf/flume/config_files.
+O arquivo start.sh recebe como parâmetro o nome do arquivo de configuração que o Flume deve utilizar. Neste caso o arquivo utilizado será o spool-to-kafka.properties. Este arquivo está na pasta conf/flume/config_files.
 
 Com essa configuração o Flume irá ler o conteúdo de texto dos arquivos colocados na pasta conf/flume/spool_to_kafka e publicar o conteúdo no tópico spool_to_kafka do Kafka. Quando o flume realizar a leitura e o envio do conteúdo, o arquivo será renomeado com um ".COMPLETED".
 
