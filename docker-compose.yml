@@ -10,9 +10,11 @@ services:
       - ./conf/flume/spool_to_kafka:/spool_to_kafka
     env_file:
       - credentials.env
-    command: flume-ng agent --conf /usr/local/apache-flume/conf --conf-file /conf/${CONFIG_FILE} --name agent -Dflume.root.logger=DEBUG,console -DpropertiesImplementation=org.apache.flume.node.EnvVarResolverProperties
+    command: flume-ng agent --conf /usr/local/apache-flume/conf --conf-file /conf/${CONFIG_FILE} --name ${AGENT_NAME} -Dflume.root.logger=DEBUG,console -DpropertiesImplementation=org.apache.flume.node.EnvVarResolverProperties
     depends_on:
       - kafka
+    ports:
+      - 44444:44444
 
   kafka:
     build:

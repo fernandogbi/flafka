@@ -11,7 +11,9 @@ fi
 
 echo "creating kafka and zookeeper services"
 
-CONFIG_FILE=$1 docker-compose up -d kafka
+export CONFIG_FILE=$1
+export AGENT_NAME=$2 
+docker-compose up -d kafka
 
 echo "wating a time to kafka start and create default topics..."
 sleep 5
