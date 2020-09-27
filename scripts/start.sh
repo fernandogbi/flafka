@@ -20,6 +20,7 @@ sleep 5
 
 sh ./scripts/topics-create.sh twitter_to_kafka
 sh ./scripts/topics-create.sh spool_to_kafka
+sh ./scripts/topics-create.sh kafka_to_kafka
 
 echo "creating flume service"
 
